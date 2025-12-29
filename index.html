@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🕰️ TIME YOU WASTED</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="noise-overlay"></div>
+    <div class="scanline"></div>
+
+    <main class="container">
+        <!-- Title Section -->
+        <header class="title-section">
+            <div class="title-wrapper">
+                <h1 class="main-title">
+                    <span class="title-word">TIME</span>
+                    <span class="title-word">YOU</span>
+                    <span class="title-word wasted">WASTED</span>
+                </h1>
+                <div class="subtitle">
+                    <div class="pulse-dot"></div>
+                    <p>A DIGITAL MIRROR</p>
+                </div>
+            </div>
+
+            <div class="me">
+                <p>Designed and developed by Musfiqure Rahman</p>
+                <p class="footer-note">— A passion-driven creator turning ideas into immersive digital experiences.</p>
+            </div>
+
+
+
+
+            <div class="intro-text">
+                <p class="fade-in-text">Every minute is irreversible. Calculate your digital expenditure.</p>
+                <div class="warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span>This experience is emotionally brutal</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Input Section -->
+        <section class="input-section active-section">
+            <div class="section-header">
+                <h2><span class="section-number">01</span>INPUT YOUR DIGITAL CONSUMPTION</h2>
+                <div class="header-line"></div>
+            </div>
+
+            <div class="inputs-container">
+                <!-- Phone Usage -->
+                <div class="input-group">
+                    <div class="input-label">
+                        <span class="label-icon"><i class="fas fa-mobile-alt"></i></span>
+                        <span class="label-text">DAILY PHONE USAGE</span>
+                        <span class="label-unit">(hours)</span>
+                    </div>
+                    <div class="slider-container">
+                        <div class="slider-track">
+                            <div class="slider-fill" data-slider="phone"></div>
+                        </div>
+                        <input type="range" min="0" max="24" step="0.5" value="3" class="time-slider" id="phone-slider" data-input="phone">
+                        <div class="slider-value" data-value="phone">3.0</div>
+                    </div>
+                    <div class="slider-ticks">
+                        <span>0</span>
+                        <span>6</span>
+                        <span>12</span>
+                        <span>18</span>
+                        <span>24</span>
+                    </div>
+                </div>
+
+                <!-- Social Media -->
+                <div class="input-group">
+                    <div class="input-label">
+                        <span class="label-icon"><i class="fas fa-comment-alt"></i></span>
+                        <span class="label-text">DAILY SOCIAL MEDIA</span>
+                        <span class="label-unit">(hours)</span>
+                    </div>
+                    <div class="slider-container">
+                        <div class="slider-track">
+                            <div class="slider-fill" data-slider="social"></div>
+                        </div>
+                        <input type="range" min="0" max="24" step="0.5" value="2" class="time-slider" id="social-slider" data-input="social">
+                        <div class="slider-value" data-value="social">2.0</div>
+                    </div>
+                    <div class="slider-ticks">
+                        <span>0</span>
+                        <span>6</span>
+                        <span>12</span>
+                        <span>18</span>
+                        <span>24</span>
+                    </div>
+                </div>
+
+                <!-- Netflix / Gaming -->
+                <div class="input-group">
+                    <div class="input-label">
+                        <span class="label-icon"><i class="fas fa-gamepad"></i></span>
+                        <span class="label-text">DAILY ENTERTAINMENT</span>
+                        <span class="label-unit">(hours)</span>
+                    </div>
+                    <div class="slider-container">
+                        <div class="slider-track">
+                            <div class="slider-fill" data-slider="entertainment"></div>
+                        </div>
+                        <input type="range" min="0" max="24" step="0.5" value="1.5" class="time-slider" id="entertainment-slider" data-input="entertainment">
+                        <div class="slider-value" data-value="entertainment">1.5</div>
+                    </div>
+                    <div class="slider-ticks">
+                        <span>0</span>
+                        <span>6</span>
+                        <span>12</span>
+                        <span>18</span>
+                        <span>24</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="calculate-container">
+                <button class="calculate-btn" id="calculate-btn">
+                    <span class="btn-text">CALCULATE YOUR LOSS</span>
+                    <span class="btn-line"></span>
+                    <span class="btn-pulse"></span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Results Section (Initially Hidden) -->
+        <section class="result-section">
+            <div class="section-header">
+                <h2><span class="section-number">02</span>YOUR DIGITAL EXPENDITURE</h2>
+                <div class="header-line"></div>
+            </div>
+
+            <!-- Total Hours Counter -->
+            <div class="result-card total-hours">
+                <div class="card-header">
+                    <i class="fas fa-clock"></i>
+                    <h3>TOTAL HOURS WASTED THIS YEAR</h3>
+                </div>
+                <div class="card-content">
+                    <div class="counter-container">
+                        <div class="counter" id="total-hours-counter">0</div>
+                        <div class="counter-label">HOURS</div>
+                    </div>
+                    <div class="card-note">Based on 365 days of consistent usage</div>
+                </div>
+            </div>
+
+            <!-- Percentage of Life Lost -->
+            <div class="result-card percentage">
+                <div class="card-header">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>PERCENTAGE OF LIFE LOST</h3>
+                </div>
+                <div class="card-content">
+                    <div class="progress-ring-container">
+                        <svg class="progress-ring" width="200" height="200">
+                            <circle class="progress-ring-background" cx="100" cy="100" r="90" stroke-width="8"></circle>
+                            <circle class="progress-ring-circle" cx="100" cy="100" r="90" stroke-width="8" stroke-dasharray="565.48" stroke-dashoffset="565.48"></circle>
+                        </svg>
+                        <div class="progress-value" id="percentage-value">0%</div>
+                    </div>
+                    <div class="card-note">Of your waking hours in a year</div>
+                </div>
+            </div>
+
+            <!-- Days Lost -->
+            <div class="result-card days-lost">
+                <div class="card-header">
+                    <i class="fas fa-calendar-times"></i>
+                    <h3>DAYS LOST FOREVER</h3>
+                </div>
+                <div class="card-content">
+                    <div class="counter-container">
+                        <div class="counter" id="days-counter">0</div>
+                        <div class="counter-label">DAYS</div>
+                    </div>
+                    <div class="card-note">24-hour periods completely consumed</div>
+                </div>
+            </div>
+
+            <!-- Timeline Visualization -->
+            <div class="timeline-container">
+                <div class="timeline-header">
+                    <i class="fas fa-hourglass-half"></i>
+                    <h3>VISUALIZATION OF TIME CONSUMED</h3>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-track">
+                        <div class="timeline-filled" id="timeline-filled"></div>
+                    </div>
+                    <div class="timeline-labels">
+                        <span>JAN</span>
+                        <span>MAR</span>
+                        <span>MAY</span>
+                        <span>JUL</span>
+                        <span>SEP</span>
+                        <span>NOV</span>
+                        <span>DEC</span>
+                    </div>
+                </div>
+                <div class="timeline-note">
+                    Each segment represents one month of the year consumed
+                </div>
+            </div>
+
+            <!-- Final Message -->
+            <div class="final-message-container">
+                <div class="final-message" id="final-message">
+                    You traded <span class="highlight-days" id="final-days">0</span> days of life for scrolling.
+                </div>
+                <div class="message-subtitle">
+                    This time will never return. It is permanently gone.
+                </div>
+            </div>
+
+            <!-- Reset Button -->
+            <div class="reset-container">
+                <button class="reset-btn" id="reset-btn">
+                    <span class="btn-text">CALCULATE AGAIN</span>
+                    <span class="btn-line"></span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-line"></div>
+            <div class="footer-text">
+                <p>TIME IS THE ONLY NON-RENEWABLE RESOURCE</p>
+                <p class="footer-note">This is not a tool. This is a mirror.</p>
+            </div>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+    <!-- Floating Social Buttons -->
+    <div class="floating-social">
+        <a href="https://wa.me/8801778375642" target="_blank" class="social-btn whatsapp" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+
+        <a href="https://www.facebook.com/share/1BKK3XnHQq/" target="_blank" class="social-btn facebook" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+    </div>
+
+    <!-- Font Awesome (FREE) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+
+
+
+
+</body>
+
+</html>
